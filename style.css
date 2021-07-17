@@ -1,0 +1,79 @@
+body {
+    padding-top: 93px;
+    background: #c2c2d6;
+}
+
+#calculator {
+    text-align: center;
+}
+
+.center {
+    display: inline-block;
+    padding-bottom: 8px;
+    background-color: black;
+    border: 3px solid gray;
+}
+
+input {
+    height: 55px;
+    width: 70px;
+    border: none;
+    background: rgb(102, 102, 102);
+    outline: 1px solid black;
+    color: white;
+}
+
+#display {
+    width: 278px;
+    height: 51px;
+    border: none;
+}
+
+.space {
+    padding: 10px;
+    padding-left: 23px;
+}
+
+input:hover {
+    outline: .05em solid grey;
+    z-index: 3;
+    color: black;
+}
+
+.clear {
+    background-color: red;
+    width: 144px;
+}
+
+#zero {
+    width: 144px;
+}
+
+#point {}
+
+#equals {
+    height: 110px;
+    background-color: cornflowerblue;
+}
+
+.col1 {
+    padding-left: 34px;
+}
+
+.col2 {
+    margin-top: 55px;
+    height: 218px;
+}
+
+.col3 {
+    margin-left: -22px;
+}
+
+.col4 {
+    padding-left: 0px;
+    padding-right: 58px;
+}
+
+.padding {
+    padding-left: 16px;
+}

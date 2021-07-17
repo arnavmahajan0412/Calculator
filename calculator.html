@@ -1,50 +1,87 @@
 <html>
-    <head>
-        <title> My calculator </title>
-        <script>
-            function takevalue(val){
-                document.getElementById("screen").value += val;               
-            }
-            function calculate(){
-                document.getElementById("screen").value = eval(document.getElementById("screen").value);
-            }
-            function clearvalue(){
-                document.getElementById("screen").value = "";
+
+<head>
+    <title> Calculator </title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <script>
+        var test = 0;
+
+        function take(val) {
+
+            if (val == "+" || val == "-" || val == "*" || val == "/") {
+                if (test <= 0) {
+                    document.getElementById("display").value += val;
+                    test++;
+                }
+
+            } else {
+                document.getElementById("display").value += val;
             }
 
-        </script>
-    </head>
-    <body>
-        <div class="cal"> 
-            <div class="display">
-                <input type="text" readonly size="14" id="screen">
+        }
+
+        function cal() {
+            let value = document.getElementById("display").value
+            if (value && value.length) {
+                document.getElementById("display").value = eval(value);
+            }
+            test = 0;
+        }
+
+        function clearField() {
+
+            document.getElementById("display").value = "";
+            test = 0;
+        }
+    </script>
+</head>
+
+<body>
+    <div class="row" id="calculator">
+        <div class="col-sm-3 center mx-auto">
+            <div class="space">
+                <input type="text" readonly size="14" id="display">
             </div>
             <div>
-                <p>
-                    <input type="button" class="button black" value="7" onclick='takevalue("7")'>
-                    <input type="button" class="button black" value="8" onclick='takevalue("8")'>
-                    <input type="button" class="button black" value="9" onclick='takevalue("9")'>
-                    <input type="button" class="button blue" value="*" onclick='takevalue("*")'>
-                </p>
-                <p>
-                    <input type="button" class="button black" value="4" onclick='takevalue("4")'>
-                    <input type="button" class="button black" value="5" onclick='takevalue("5")'>
-                    <input type="button" class="button black" value="6" onclick='takevalue("6")'>
-                    <input type="button" class="button blue" value="-" onclick='takevalue("-")'>
-                </p>
-                <p>
-                    <input type="button" class="button black" value="1" onclick='takevalue("1")'>
-                    <input type="button" class="button black" value="2" onclick='takevalue("2")'>
-                    <input type="button" class="button black" value="3" onclick='takevalue("3")'>
-                    <input type="button" class="button blue" value="+" onclick='takevalue("+")'>
-                </p>
-                <p>
-                    <input type="button" class="button black" value="0" onclick='takevalue("0")'>
-                    <input type="button" class="button black" value="C" onclick='clearvalue("C")'>
-                    <input type="button" class="button blue" value="=" onclick='calculate("=")'>
-                    <input type="button" class="button blue" value="/" onclick='takevalue("/")'>
-                </p>
+                <div class="row mx-auto padding">
+                    <div class="col-sm-3 col1">
+                        <input type="button" class="clear" value="AC" onclick='clearField()'>
+                        <input type="button" value="7" onclick='take("7")'>
+                        <input type="button" value="4" onclick='take("4")'>
+                        <input type="button" value="1" onclick='take("1")'>
+                        <input type="button" id="zero" value="0" onclick='take("0")'>
+                    </div>
+                    <div class="col-sm-3 col2">
+                        <input type="button" value="8" onclick='take("8")'>
+                        <input type="button" value="5" onclick='take("5")'>
+                        <input type="button" value="2" onclick='take("2")'>
+                    </div>
+                    <div class="col-sm-3 col3">
+                        <input type="button" id="divide" value="/" onclick='take("/")'>
+                        <input type="button" value="9" onclick='take("9")'>
+                        <input type="button" value="6" onclick='take("6")'>
+                        <input type="button" value="3" onclick='take("3")'>
+                        <input type="button" value="." onclick='take(".")'>
+                    </div>
+                    <div class="col-sm-3 col4">
+                        <input type="button" id="multiply" value="*" onclick='take("*")'>
+                        <input type="button" id="subtract" value="-" onclick='take("-")'>
+                        <input type="button" id="add" value="+" onclick='take("+")'>
+                        <input type="button" id="equals" value="=" onclick='cal()'>
+                    </div>
+                </div>
+
+
             </div>
         </div>
-    </body>
+
+    </div>
+</body>
+
 </html>
